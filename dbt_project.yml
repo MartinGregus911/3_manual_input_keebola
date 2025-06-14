@@ -1,0 +1,9 @@
+name: 'keboola_cleanup'
+version: '1.0'
+config-version: 2
+
+profile: 'keboola_profile'
+
+models:
+  keboola_cleanup:
+    materialized: table
