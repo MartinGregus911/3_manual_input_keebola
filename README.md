@@ -1,16 +1,17 @@
 # ✅ Úloha 3 - čistenie manuálneho inputu (Keebola)
 
+```
 3_manual_input_keebola/
-├── README.md # Tento popis
-├── input.csv # Vstupné dáta nahrané do Keboola
-├── csv_input_cleaned.csv # Výstupné vyčistené dáta (voliteľné)
-├── simulation_of_transitions.py # Lokálne spustiteľný skript v Pythone (mimo Keboola)
-├── keboola_transformation_script.py # ✅ Skript použitý v Keboola (s /data/in/ a /data/out/)
-├── input_cleanup.sql # SQL verzia transformačnej logiky (samostatne)
-├── dbt_project.yml # dbt konfiguračný súbor (pre Git prepojenie)
+├── README.md                        # Tento popis
+├── input.csv                        # Vstupné dáta nahrané do Keboola
+├── csv_input_cleaned.csv           # Výstupné vyčistené dáta (voliteľné)
+├── simulation_of_transitions.py    # Lokálne spustiteľný skript v Pythone (mimo Keboola)
+├── keboola_transformation_script.py# ✅ Skript použitý v Keboola (s /data/in/ a /data/out/)
+├── input_cleanup.sql               # SQL verzia transformačnej logiky (samostatne)
+├── dbt_project.yml                 # dbt konfiguračný súbor (pre Git prepojenie)
 └── models/
-└── csv_input_to_clean.sql # SQL transformácia kompatibilná s dbt (model)
-
+    └── csv_input_to_clean.sql      # SQL transformácia kompatibilná s dbt (model)
+```
 
 ## Prehľad
 
