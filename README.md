@@ -1,62 +1,54 @@
-# ✅ Task 3 – Manual Input Cleanup (Keboola)
+# ✅ Úloha 3 - čistenie manuálneho inputu (Keebola)
 
 3_manual_input_keebola/
-├── README.md                          ← Full summary of Task 3 solution
-├── input.csv                          ← Raw input data uploaded to Keboola
-├── csv_input_cleaned.csv              ← Cleaned output result (optional to include)
-├── simulation_of_transitions.py       ← Standalone Python version (runs outside Keboola)
-├── keboola_transformation_script.py   ← ✅ Working Python script used in Keboola (with /data/in/ and /data/out/ paths)
-├── input_cleanup.sql                  ← SQL version of the cleaning logic (standalone)
-├── dbt_project.yml                    ← dbt project file (used if connecting via Git to dbt component)
+├── README.md                          ← Súhrnný popis riešenia úlohy 3
+├── input.csv                          ← Pôvodné vstupné dáta nahrané do Keboola
+├── csv_input_cleaned.csv              ← Výstup vyčistených dát (voliteľné zahrnúť)
+├── simulation_of_transitions.py       ← Samostatná verzia v Pythone (mimo Keboola)
+├── keboola_transformation_script.py   ← ✅ Použitý Python skript priamo v Keboola (s /data/in/ a /data/out/)
+├── input_cleanup.sql                  ← SQL verzia transformačnej logiky (samostatne)
+├── dbt_project.yml                    ← dbt konfiguračný súbor (pri použití Git integrácie)
 └── models/
-    └── csv_input_to_clean.sql         ← SQL version of transformation logic (dbt-compatible model)
+    └── csv_input_to_clean.sql         ← SQL transformácia kompatibilná s dbt (model)
 
 
-## Overview
+## Prehľad
 
-This task involved loading a manually provided CSV file into Keboola, identifying and fixing data quality issues using Python, and saving the cleaned result as an output table for further use.
-
----
-
-## Steps Completed
-
-### 1. 📥 Input Upload
-
-- The original file `input.csv` was uploaded to **Storage** as a table:
-
-### 2. 🛠 Python Transformation
-
-A Python transformation was created directly in Keboola to:
-- Remove rows where key fields were null:
-- `Category`, `Product`, `TransactionDate`, `ShippingAddress`, `Email`
-- Strip whitespace from text fields
-- Convert all email addresses to lowercase
-- Validate basic email format (`@` and `.` must be present)
-- Remove duplicate rows
-
-✅ The transformation script was run **inside Keboola**, using the standard paths:
-- Input: `/data/in/tables/csv_input.csv`
-- Output: `/data/out/tables/csv_input_cleaned.csv`
-
-### 3. 🔁 Table Mappings
-
-- **Input Mapping**:
-- Table: `manual-input.csv_input`
-- Mounted to: `csv_input.csv`
-
-- **Output Mapping**:
-- Table: `csv_input_cleaned`
-- Saved from: `csv_input_cleaned.csv`
-
-Both mappings were configured manually within the Python transformation component.
+Táto úloha spočívala v načítaní manuálne poskytnutého CSV súboru do Keebola, identifikácii a oprave problémov
+ s kvalitou dát pomocou Pythonu a uložení vyčisteného výsledku ako výstupnú tabuľku pre ďalšie použitie.
 
 ---
 
-## Result ✅
+### Vykonané kroky
 
-- Output table is available in Storage at:
+### 1.📥Nahratie vstupu
 
-	out.csv_input_cleaned
+- originálny súbor `input.csv` bol nahraný do **Storage** ako tabuľka.
 
-The task was successfully executed, the output was verified, and the logic was preserved across both SQL and Python implementations.
+### 2. 🛠 Transformácia v Pythone
 
+Vytvorila sa transformácia v Keebola (Python), ktorá:
+- odstánila riadky s nulovými hodnotami v kľúčových stĺpcoch:
+	- `Category`, `Product`, `TransactionDate`,`ShippingAddress`, `Email`
+- odstránila nadbytočné medzery
+- prekonvertovala emaily na malé písmená
+- validovala základný emailový formát (`@` a `.`)
+- odstránila duplikované riadky
+
+✅ Transformácia prebehla **vnútri keebola**, pomocou štandardných ciest:
+- Vstup: `/data/in/tables/csv_input.csv`
+- Výstup: `/data/out/tables/csv_input_cleaned.csv`
+
+### 3. 🔁 Mapovanie tabuliek
+
+- **Vstupná tabuľka**:
+	- Názov: `csv_input_cleaned`
+	- Exportovaná zo súboru: `csv_input_cleaned.csv`
+	
+Obe mapovania boli nastavené manuálne priamo v komponentoch Keebola.
+
+---
+
+Úloha bola úspešne vykonaná, výstup bol overený a logika je dostupná v oboch - SQL aj Python verzii.
+
+---
